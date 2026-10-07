@@ -1,0 +1,10 @@
+# Exercise 07, Part B: limit the "dev" namespace to at most 1 Pod,
+# regardless of which Deployment tries to create more.
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: dev-quota
+  namespace: dev
+spec:
+  hard:
+    pods: "1"

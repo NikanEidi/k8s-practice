@@ -1,0 +1,10 @@
+# Exercise 07: two Namespaces to simulate separate environments.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: staging

@@ -1,0 +1,22 @@
+# Exercise 07: the same manifest, deployed into different Namespaces with
+# `kubectl apply -f deployment.yaml -n <namespace>`. No namespace is set
+# here on purpose, to show that it comes from the command, not the file.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27
+          ports:
+            - containerPort: 80

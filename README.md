@@ -54,7 +54,7 @@ kind delete cluster          # tear it down when finished
 | 04 | [Health checks](04-health-checks/) | Completed | Readiness vs. liveness probes, httpGet, failureThreshold |
 | 05 | [ConfigMap and Secret](05-configmap-and-secret/) | Completed | `envFrom`, why Secrets are encoded not encrypted |
 | 06 | [Resource limits and requests](06-resource-limits/) | Completed | Requests vs. limits, CPU throttling vs. OOMKilled |
-| 07 | Namespaces | Planned | Separating environments inside one cluster |
+| 07 | [Namespaces](07-namespaces/) | Completed | Isolation, cluster-scoped vs. namespaced objects, ResourceQuota |
 
 ## Repository layout
 
