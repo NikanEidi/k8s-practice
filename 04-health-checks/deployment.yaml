@@ -1,0 +1,39 @@
+# Exercise 04: a Deployment with readiness and liveness probes.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: health-demo
+  template:
+    metadata:
+      labels:
+        app: health-demo
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
+
+          # "Are you ready for traffic?" Checked repeatedly. On failure, the
+          # Pod is removed from Service endpoints but NOT restarted.
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 2   # wait before the first check
+            periodSeconds: 3         # check every 3 seconds
+
+          # "Are you still alive?" Checked repeatedly. On repeated failure,
+          # Kubernetes kills and restarts the container.
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3      # must fail 3 times in a row before a restart
