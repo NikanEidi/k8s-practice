@@ -50,7 +50,8 @@ kind delete cluster          # tear it down when finished
 |---|---|---|---|
 | 01 | [First Deployment](01-first-deployment/) | Completed | Deployment, replicas, labels and selectors, self-healing |
 | 02 | [Service](02-service/) | Completed | Stable addressing, selectors, NodePort vs ClusterIP vs LoadBalancer |
-| 03 | Scaling and rolling updates | Planned | Changing replicas and image tags with zero downtime |
+| 03 | [Scaling and rolling updates](03-scaling-and-updates/) | Completed | `kubectl scale`, rolling updates, rollout status/history, rollback |
+| 04 | Health checks | Planned | Liveness and readiness probes |
 
 ## Repository layout
 
