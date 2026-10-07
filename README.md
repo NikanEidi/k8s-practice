@@ -53,7 +53,7 @@ kind delete cluster          # tear it down when finished
 | 03 | [Scaling and rolling updates](03-scaling-and-updates/) | Completed | `kubectl scale`, rolling updates, rollout status/history, rollback |
 | 04 | [Health checks](04-health-checks/) | Completed | Readiness vs. liveness probes, httpGet, failureThreshold |
 | 05 | [ConfigMap and Secret](05-configmap-and-secret/) | Completed | `envFrom`, why Secrets are encoded not encrypted |
-| 06 | Resource limits and requests | Planned | Capping CPU/memory per Pod |
+| 06 | [Resource limits and requests](06-resource-limits/) | Completed | Requests vs. limits, CPU throttling vs. OOMKilled |
 | 07 | Namespaces | Planned | Separating environments inside one cluster |
 
 ## Repository layout

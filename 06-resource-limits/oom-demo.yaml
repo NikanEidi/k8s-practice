@@ -1,0 +1,25 @@
+# Exercise 06, Part B: deliberately trigger an OOMKilled by asking a
+# container to allocate more memory than its limit allows.
+#
+# `polinux/stress` is a small, well-known image used across the official
+# Kubernetes docs for exactly this kind of demo; it runs the `stress` tool,
+# which exists only to consume a configurable amount of CPU/memory on demand.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oom-demo
+spec:
+  containers:
+    - name: stress
+      image: polinux/stress
+      resources:
+        requests:
+          memory: "50Mi"
+        limits:
+          memory: "100Mi"     # the container will try to use more than this
+      command: ["stress"]
+      args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
+      # --vm 1          : one worker process allocating memory
+      # --vm-bytes 150M : try to allocate 150 MB (the limit above is 100Mi)
+      # --vm-hang 1     : hold that memory instead of releasing it immediately
+  restartPolicy: Never          # so the Pod stays in a failed state to inspect, instead of looping

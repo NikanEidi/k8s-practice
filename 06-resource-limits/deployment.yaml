@@ -1,0 +1,27 @@
+# Exercise 06, Part A: a Deployment with sane CPU and memory requests/limits.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: limited-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: limited-nginx
+  template:
+    metadata:
+      labels:
+        app: limited-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"      # 0.1 of a CPU core, guaranteed
+              memory: "64Mi"   # 64 mebibytes, guaranteed
+            limits:
+              cpu: "250m"      # 0.25 of a CPU core, hard cap (throttled above this)
+              memory: "128Mi"  # 128 mebibytes, hard cap (killed above this)
