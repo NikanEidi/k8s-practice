@@ -1,0 +1,13 @@
+# Exercise 02: a NodePort Service exposing the hello-nginx Pods.
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-nginx-service
+spec:
+  type: NodePort
+  selector:
+    app: hello-nginx        # must match the Pods' labels, same rule as a Deployment selector
+  ports:
+    - port: 80               # port other things inside the cluster use to reach this Service
+      targetPort: 80          # port on the Pod (containerPort) traffic is forwarded to
+      nodePort: 30080         # port opened on the Node itself, reachable from outside the cluster

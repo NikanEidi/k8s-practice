@@ -49,7 +49,8 @@ kind delete cluster          # tear it down when finished
 | # | Exercise | Status | What it covers |
 |---|---|---|---|
 | 01 | [First Deployment](01-first-deployment/) | Completed | Deployment, replicas, labels and selectors, self-healing |
-| 02 | Service | Planned | Stable addressing and load balancing across Pods |
+| 02 | [Service](02-service/) | Completed | Stable addressing, selectors, NodePort vs ClusterIP vs LoadBalancer |
+| 03 | Scaling and rolling updates | Planned | Changing replicas and image tags with zero downtime |
 
 ## Repository layout
 
