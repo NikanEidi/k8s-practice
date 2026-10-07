@@ -52,7 +52,7 @@ kind delete cluster          # tear it down when finished
 | 02 | [Service](02-service/) | Completed | Stable addressing, selectors, NodePort vs ClusterIP vs LoadBalancer |
 | 03 | [Scaling and rolling updates](03-scaling-and-updates/) | Completed | `kubectl scale`, rolling updates, rollout status/history, rollback |
 | 04 | [Health checks](04-health-checks/) | Completed | Readiness vs. liveness probes, httpGet, failureThreshold |
-| 05 | ConfigMap and Secret | Planned | Separating configuration and credentials from the image |
+| 05 | [ConfigMap and Secret](05-configmap-and-secret/) | Completed | `envFrom`, why Secrets are encoded not encrypted |
 | 06 | Resource limits and requests | Planned | Capping CPU/memory per Pod |
 | 07 | Namespaces | Planned | Separating environments inside one cluster |
 

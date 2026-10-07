@@ -1,0 +1,8 @@
+# Non-sensitive configuration, kept separate from the image and the Deployment.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  GREETING: "Hello from a ConfigMap"
+  LOG_LEVEL: "debug"
